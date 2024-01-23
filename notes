@@ -1,0 +1,28 @@
+this function comes right after we check for "SO - NO - WE - EA" in the map file.
+int	checker_for_t(t_cub3d *t)
+{
+	int	i;
+	int	j;
+	int	flag;
+
+	i = 0;
+	j = 0;
+	flag = 0;
+	while (t->map[i])
+	{
+		j = 0;
+		while (t->map[i][j])
+		{
+			while (t->map[i][j] == ' ')
+				j++;
+			if (t->map[i][j] == 'C' || t->map[i][j] == 'F')
+				flag++;
+			if (t->map[i][j])
+				j++;
+		}
+		i++;
+	}
+	if (flag != 2)
+		return (0);
+	return (1);
+}
